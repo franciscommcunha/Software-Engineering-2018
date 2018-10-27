@@ -1,0 +1,344 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Specification &mdash; Domotics 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Architecture" href="architecture.html" />
+    <link rel="prev" title="User Manual" href="manual.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Domotics
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                G302
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="client.html">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual.html">User Manual</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Specification</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#project-scope">Project Scope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#features-system-scenarios-and-processes">Features, System Scenarios and Processes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#features">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#actors-use-cases-stories">Actors/Use Cases/Stories</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#data-model">Data Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sensor-s-values">Sensor’s values</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="requirements.html">Requirements and Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer.html">Developer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="team.html">Team</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Domotics</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Specification</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/specification.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="specification">
+<h1>Specification<a class="headerlink" href="#specification" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="project-scope">
+<h2>Project Scope<a class="headerlink" href="#project-scope" title="Permalink to this headline">¶</a></h2>
+<p>Domotics is a platform that allows the management and monitoring of smart homes. The user has the possibility to control the environment of his house using our dashboard. It is also possible to set alerts so that important events of the month are not missing or if there is a change, you can change it.</p>
+<p>In addition, our platform is flexible and controls various sensors such as temperature, humidity, CO2 levels, movement and even let’s you know the energy consumption of existing household appliances. The platform allows the addition of more sensors if the user sees the need and has a brightness actuator for defined divisions. Since everything is digital today, you can use access our application in any web browser.</p>
+</div>
+<div class="section" id="features-system-scenarios-and-processes">
+<h2>Features, System Scenarios and Processes<a class="headerlink" href="#features-system-scenarios-and-processes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="features">
+<h3>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>FE-1: Show every data from the sensors in real-time in tables.</li>
+<li>FE-2: Check previous values of the past hours in charts.</li>
+<li>FE-3: Send alerts when the values are above/below the threshold.</li>
+<li>FE-4: Define alarms (routine alarms or specific events).</li>
+<li>FE-5: Be able to make changes depending on values read from sensors.</li>
+</ul>
+</div>
+<div class="section" id="actors-use-cases-stories">
+<h3>Actors/Use Cases/Stories<a class="headerlink" href="#actors-use-cases-stories" title="Permalink to this headline">¶</a></h3>
+<p><strong>Actors</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li>User: a person who uses the dashboard and the system.</li>
+<li>System: the entity that makes “intelligent decisions” based on the information received from the sensors.</li>
+</ul>
+</div></blockquote>
+<p><strong>Use Cases</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li>UC-1: Visualize alerts in the dashboard.</li>
+<li>UC-2: Visualize real-time values in tables.</li>
+<li>UC-3: Visualize previous values in charts.</li>
+<li>UC-4: Define routine or specific alarms.</li>
+<li>UC-5: Get values from sensors.</li>
+<li>UC-6: Display values from sensors in the dashboard.</li>
+<li>UC-7: Modify values that are above/below the threshold.</li>
+<li>UC-8: Send alerts to dashboard.</li>
+</ul>
+<div class="figure">
+<img alt="_images/ES_specs.png" src="_images/ES_specs.png" />
+</div>
+<p>Figure 8: Use Cases</p>
+</div></blockquote>
+<p><strong>User Stories</strong></p>
+<ul class="simple">
+<li>US-1: As a user I want to access the dashboard so I can see real-time information in tables.</li>
+<li>US-2: As a user I want to navigate in the dashboard to analize previous information in charts.</li>
+<li>US-3: As user I want to be alerted if there are strange values in some parameters.</li>
+<li>US-4: As a user I want to check important events in my calendar.</li>
+<li>US-5: As a user I want to check the average of the values obtained by the sensors in my house.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="data-model">
+<h2>Data Model<a class="headerlink" href="#data-model" title="Permalink to this headline">¶</a></h2>
+<p>In this section it will be described the concepts and relations used in the high level representation of the platform data model.</p>
+<p>In our system, there are 5 different types of sensors presented in the following table along with the respective type the values of the sensors are read:</p>
+<div class="section" id="sensor-s-values">
+<h3>Sensor’s values<a class="headerlink" href="#sensor-s-values" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="82%" />
+<col width="18%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Type</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Temperature</td>
+<td>ºC</td>
+</tr>
+<tr class="row-odd"><td>Humidity</td>
+<td>%</td>
+</tr>
+<tr class="row-even"><td>CO2</td>
+<td>ppm</td>
+</tr>
+<tr class="row-odd"><td>Energy</td>
+<td>W/h</td>
+</tr>
+<tr class="row-even"><td>Movement</td>
+<td>boolean</td>
+</tr>
+<tr class="row-odd"><td>Luminosity</td>
+<td>boolean</td>
+</tr>
+</tbody>
+</table>
+<p>In each division of the house, there are temperature, humidity, CO2, movement and luminosity sensors. The energy sensors are placed in the household appliances and register the the energy consumption of each appliance they are connected.</p>
+<p>The sensors return to the user: which division the sensor is placed at (kitchen, living room, bathroom, etc), the respective division’s id (any number starting from 1 to N, where N is the total divisions of the house), the value of the sensor and the time the value was read from the sensor.</p>
+<p>Users of the system are defined by their credentials of access (username/password).</p>
+<p>In the following figure, it’s possible to see the data model of our system:</p>
+<blockquote>
+<div><div class="figure">
+<img alt="_images/ES_datamodel.png" src="_images/ES_datamodel.png" />
+</div>
+<p>Figure 9: Data Model</p>
+</div></blockquote>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="architecture.html" class="btn btn-neutral float-right" title="Architecture" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="manual.html" class="btn btn-neutral" title="User Manual" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, g302.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

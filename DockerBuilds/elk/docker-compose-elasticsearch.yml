@@ -1,0 +1,30 @@
+version: '2'
+
+services:
+  kibana:
+    image: kibana:5
+    restart: unless-stopped
+    ports:
+      - "5601:5601"
+    depends_on:
+      - elasticsearch
+    environment:
+      - ELASTICSEARCH_URL=http://elasticsearch:9200
+
+  elasticsearch:
+    image: elasticsearch:5-alpine
+    restart: unless-stopped
+    command: elasticsearch -Etransport.host=127.0.0.1
+    environment:
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+
+  metricbeat:
+    build: .
+    restart: unless-stopped
+    pid: host
+    volumes:
+      - ./metricbeat.yml:/metricbeat/metricbeat.yml
+    depends_on:
+      - elasticsearch
+    environment:
+      - ELASTICSEARCH_URL=http://elasticsearch:9200

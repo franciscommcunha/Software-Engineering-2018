@@ -1,0 +1,25 @@
+Client
+======
+
+[Under construction]
+
+Context
+-------
+
+Objectives
+----------
+
+Specifications
+--------------
+
+Features
+--------
+
+Risks and Challenges
+--------------------
+
+Architecture
+------------
+
+Components
+----------

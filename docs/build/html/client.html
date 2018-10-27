@@ -1,0 +1,300 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Client &mdash; Domotics 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="User Manual" href="manual.html" />
+    <link rel="prev" title="Software Engineering: Domotics" href="index.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Domotics
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                G302
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Client</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#context">Context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#problem">Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#objectives">Objectives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#specifications">Specifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#risks-and-challenges">Risks and Challenges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#technical-requirements">Technical requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#architecture">Architecture</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="manual.html">User Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="specification.html">Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="requirements.html">Requirements and Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer.html">Developer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="team.html">Team</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Domotics</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Client</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/client.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="client">
+<h1>Client<a class="headerlink" href="#client" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="context">
+<h2>Context<a class="headerlink" href="#context" title="Permalink to this headline">¶</a></h2>
+<p>In a world where the use of technology is growing in a large scale, the domotic area is growing up tendency. Domotics is a project made by a team of Computer &amp; Telematics Engineering students in response to the challenge made by the subject of Software engineering.</p>
+</div>
+<div class="section" id="problem">
+<h2>Problem<a class="headerlink" href="#problem" title="Permalink to this headline">¶</a></h2>
+<p>More and more intelligent houses exist and users do not always know how to control and monitor the existing technology, so there is a need for a simple platform that allows the visualization of all the data of an intelligent house. Thus was born the Domotics project.</p>
+</div>
+<div class="section" id="objectives">
+<h2>Objectives<a class="headerlink" href="#objectives" title="Permalink to this headline">¶</a></h2>
+<p>The system we will implement is going to offer a way to visualize data gathered by sensors on web browsers referring to a real-time monitorization of a house, sending warnings when extreme conditions occur, show some historical data that is stored in our system or even alert the residents of the house with some alarm clocks of specific events like meetings.</p>
+</div>
+<div class="section" id="specifications">
+<h2>Specifications<a class="headerlink" href="#specifications" title="Permalink to this headline">¶</a></h2>
+<p>The data obtained is the product of a simulation of data that would come from actual sensors on a house.
+The conditions observable in our system are:</p>
+<ul class="simple">
+<li>Temperature.</li>
+<li>Humidity.</li>
+<li>Luminosity.</li>
+<li>Smoke levels.</li>
+<li>Movement.</li>
+<li>Use of energy by different home appliances.</li>
+</ul>
+</div>
+<div class="section" id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Show data from the sensors in real-time.</li>
+<li>Check previous values in charts.</li>
+<li>Send alerts when the values are above/below the threshold.</li>
+<li>Define alarms (routine alarms or specific events).</li>
+<li>Be able to make changes depending on values read from sensors.</li>
+</ul>
+</div>
+<div class="section" id="risks-and-challenges">
+<h2>Risks and Challenges<a class="headerlink" href="#risks-and-challenges" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Sensors not working correctly.</li>
+<li>Data values not corresponding to real values.</li>
+</ol>
+</div>
+<div class="section" id="technical-requirements">
+<h2>Technical requirements<a class="headerlink" href="#technical-requirements" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Data sensors to collect data from the house.</li>
+<li>Network access and a web browser.</li>
+</ol>
+</div>
+<div class="section" id="architecture">
+<h2>Architecture<a class="headerlink" href="#architecture" title="Permalink to this headline">¶</a></h2>
+<div class="figure">
+<img alt="_images/ES_client.png" src="_images/ES_client.png" />
+</div>
+<p>Figure 2: Architecture</p>
+<p>Our system has many different components. For the user, the most important components are the <strong>sensors</strong> and the <strong>dashboard</strong>.
+The sensors will give the user different information such as temperature, humidity, luminosity, smoke levels, movement in the house and use of energy by different home appliances.</p>
+<p>The information given by the sensors is displayed in a web dashboard that is present to the user. The dashboard has two categories: real-time information and historic. In the <strong>real-time</strong> information, there are values in real-time from the sensors (presented in tables with fields such as: name of the room, room id and the value sent by the sensor). The <strong>historic</strong> has line charts where the user can visualize the different values in the past hours of the day. This values were previously saved in a database.</p>
+<p>When some value given by the sensor is too high or too low compared to the advisable value, it will be presented to the user a notification and an <strong>alarm</strong> will be triggered in order to make some change in the house so the abnormal value can dicrease or increase, respectively.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="manual.html" class="btn btn-neutral float-right" title="User Manual" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Software Engineering: Domotics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, g302.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

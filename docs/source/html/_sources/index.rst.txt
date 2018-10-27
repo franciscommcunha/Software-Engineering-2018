@@ -1,0 +1,23 @@
+Software Engineering: Domotics
+=======================================
+
+"The word **domotics** literally means home robotics. In Latin, the word *domus* means home. The field of domotics encompasses all phases of smart home technology, including the highly sophisticated sensors and controls that monitor and automate temperature, lighting, security systems, and many other functions." (Source: *https://www.thoughtco.com/what-is-a-smart-house-domotics-177572*)
+
+Domotics is a scenario that will be explored by the group G302 in the course of Software Engineering. It will be developed a project that will apply the basic principles of home automation. More information in the sections presented in the navigation bar on the left side of the page.
+
+.. figure:: _static/domotics.png
+
+.. toctree::
+   :hidden:
+   
+   client
+   manual
+   specification
+   architecture
+   developer
+   team
+   
+
+
+
+

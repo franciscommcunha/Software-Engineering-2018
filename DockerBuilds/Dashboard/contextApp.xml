@@ -1,0 +1,8 @@
+<Context>
+<Resource name="jdbc/postgres" auth="Domotics"
+          type="javax.sql.DataSource" driverClassName="org.postgresql.Driver"
+          url="jdbc:postgresql://postgres:5432/domotics"
+          username="postgres" password="secret" maxTotal="20" maxIdle="10"
+maxWaitMillis="-1"/>
+</Context>
+

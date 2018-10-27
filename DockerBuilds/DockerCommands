@@ -1,0 +1,146 @@
+# Portainer quick start
+
+docker run -d -p 9000:9000 --restart always -v /var/run/docker.sock:/var/run/docker.sock -v /opt/portainer:/data portainer/portainer
+
+#host of portainer : http://0.0.0.0:9000
+
+
+
+##BUILD FROM A DOCKERFILE AN IMAGE IN A CONTAINER IN CURRENT DIRECTORY
+##DOCKER FILE DESCRIBES THE ENVIROMENT (CONTAINER) AND INSTALLS ALL DEPENDENCIES
+##DOCKERFILE MUST BE IN THE SAME DIRECTORY WHERE YOU RUN THE COMMAND BELLOW
+##THE "." is THE PATH WHERE YOU BUILD THE RESULTING IMAGE
+##IN THIS CASE CURRENT DIRECTORY
+
+docker build -t <APP-TAG> . 
+
+
+## RUN A DOCKER IMAGE MAPING HOST PORT 4000 to container exposed port 80
+## exposed port 80 was exposed in Dockerfile
+## [OPTION] -p -> publish
+
+docker run -p 4000:80 <ApptoRun-tag>
+
+docker run --name <nome_a_dar> <ApptoRunTag>
+
+
+##TAG AN IMAGE
+
+docker tag <image> <username/repository:tag>
+
+
+## RUNNING  DEtached
+
+docker run -d -p 4000:80 <TAG>
+
+
+## STOPING A CONTAINER
+## SEE ID WITH "docker ps"
+
+docker container stop <ID>
+
+
+
+##SERVICES
+## NEEDS A DOCKER-COMPOSE file that describes the scale
+
+docker swarm init
+
+docker stack deploy -c docker-compose.yml <NAMEOAPP>
+
+
+
+## SERVICES ID
+
+docker service ls
+
+## TASKS PER SERVICE - defined in docker-compose.yml as replicas
+
+docker service ps <NAME OF SERVICE>
+
+
+## TAKE DOWN THE APP STACK
+
+docker stack rm <NAMEOAPP>
+
+
+##TAKE DOWN THE SWARM
+
+docker swarm leave --force
+
+
+
+##DOCKER-MACHINE
+##CREATING VIRTUAL MACHINES
+
+docker-machine create --driver virtualbox <NOME>
+
+
+##LIST ALL VIRTUAL MACHINES RUNNING
+
+docker-machine ls
+
+
+
+##this machine comands virtualimage to init the swarm
+## and advertise his IP
+## GIVES A COMAND SO OTHER MACHINES CAN JOIN
+
+docker-machine ssh myvm1 "docker swarm init --advertise-addr <myvm1 ip>"
+
+
+##SWARM JOIN
+
+docker-machine swarm join --token <TOKENGIVENBYMANAGER> <MANAGERIP>:<PORT>
+
+
+##LISTS NODES IN THIS SWARM
+## ONLY THE MANAGER
+
+docker node ls
+
+
+##MAKING A SHELL IN A VIRTUAL MACHINE SWARM MANAGER
+## YOU GET A COMMAND TO START COMUNICATING WITH THE VM
+
+docker-machine env <VIRTUAL_MACHINE_NAME>
+
+##comand
+env $(docker-machine env myvm1)
+
+
+##NEXT JUST DEPLOY THE APP USING the .yml file
+
+docker stack deploy -c docker-compose.yml <NAMEOAPP>
+
+
+##UNSETTING docker-machine shell
+
+eval $(docker-machine env -u)
+
+
+##DOCKER VM START AND STOP
+
+docker-machine start <VMNAME>
+docker-machine stop <VMNAME>
+
+
+#DOCKER service/STACK VISUALIZATION
+
+docker stack ls
+docker stack ps <nomeDASTACK> #displays all replicas of services
+
+
+#RABBITMQ IMAGE:MANAGEMENT START
+
+docker run -d --hostname <HOSTNAME> --name <NOMEDAIMAGEMACRIAR> -p 8080:15672 rabbitmq:3-management
+
+
+ 
+
+
+
+
+
+
+

@@ -1,0 +1,377 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Developer &mdash; Domotics 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Team" href="team.html" />
+    <link rel="prev" title="Requirements and Tests" href="requirements.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Domotics
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                G302
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="client.html">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual.html">User Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="specification.html">Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="requirements.html">Requirements and Tests</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Developer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#system-rationale">System Rationale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#deployment-strategy">Deployment Strategy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#information-for-the-developer">Information for the Developer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#architecture-of-the-system-implementation">Architecture of the System Implementation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#choice-of-technologies">Choice of Technologies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#data-information-exposed-api">Data/Information &amp; Exposed API</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#database-scheme">Database Scheme</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#messages-exchanged">Messages Exchanged</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-deploy">How to deploy?</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#requirements">1. Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#deployment">2. Deployment</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="team.html">Team</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Domotics</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Developer</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/developer.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="developer">
+<h1>Developer<a class="headerlink" href="#developer" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="system-rationale">
+<h2>System Rationale<a class="headerlink" href="#system-rationale" title="Permalink to this headline">¶</a></h2>
+<p>For any user the most important part of a management platform of your smart home is the easy access and the simplicity of the interaction with the same. Thus, our system supports a simplistic and user-friendly interface. Our platform presents important information for the management and control of the environment and it is also possible to visualize all the data in a main dashboard.</p>
+</div>
+<div class="section" id="deployment-strategy">
+<h2>Deployment Strategy<a class="headerlink" href="#deployment-strategy" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>How to use Jenkins?</li>
+</ul>
+<ol class="arabic simple">
+<li>Download this: <a class="reference external" href="http://mirrors.jenkins.io/war-stable/latest/jenkins.war">http://mirrors.jenkins.io/war-stable/latest/jenkins.war</a></li>
+<li>Copy file to repository and run <code class="docutils literal notranslate"><span class="pre">“./jenkins.sh</span> <span class="pre">-PORT”</span></code></li>
+<li>Open <code class="docutils literal notranslate"><span class="pre">http://localhost:PORT</span></code></li>
+<li>New Item - Pipeline - Set GIT project url: <a class="reference external" href="https://code.ua.pt/git/es2017-2018_g302">https://code.ua.pt/git/es2017-2018_g302</a> - Set Jenkinsfile path: DockerBuils/JenkinsFile</li>
+</ol>
+<p>In our deployment strategy using Jenkins, we have a Jenkinsfile. This file contains a pipeline with three stages: “Build Dashboard”, “ELK”, “Build” and “Deploy”.</p>
+</div>
+<div class="section" id="information-for-the-developer">
+<h2>Information for the Developer<a class="headerlink" href="#information-for-the-developer" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="architecture-of-the-system-implementation">
+<h3>Architecture of the System Implementation<a class="headerlink" href="#architecture-of-the-system-implementation" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><strong>Sensors (simulators)</strong>: generation of values for the simulation of real data from sensors.</li>
+<li><strong>Kafka (broker)</strong>: used to handle the real-time data transmitted by the sensors and it is used to read and write streams of data like a messaging system. In other words, it’s the message broker that makes the bridge between the sensors and the server.</li>
+<li><strong>Database</strong>: PostgreSQL database where are stored the values read from the sensors (simulators).</li>
+<li><strong>Dashboard</strong>: user interface where realtime data and previous values are displayed to the user. This UI was implemented with JSF (and Primefaces) and is deployed with Tomcat (Java web server). In the dashboard, the user can see the realtime information (sent by the broker) in tables and previous values in charts (values that came from queries to the database).</li>
+</ul>
+</div>
+<div class="section" id="choice-of-technologies">
+<h3>Choice of Technologies<a class="headerlink" href="#choice-of-technologies" title="Permalink to this headline">¶</a></h3>
+<p>For our project it was necessary to define 3 groups of main components that interconnected each other simply and efficiently.</p>
+<p>For the database component, it was decided to use <strong>PostgreSQL</strong> because it is a relational database and is the most advanced and extensible system. This open-source system enables interaction with object-oriented languages ​​such as Java and allows a practical interaction with Python, a widely used language. Thus, it is possible to interact with our database with either one language or another.</p>
+<p>For the broker, it was initially defined the use of RabbitMQ, but this type of broker does not allow the exchange of messages between different topics so it has been changed and our system is currently using <strong>Kakfa</strong>, allowing several users to have access to our platform.</p>
+<p>The interaction with our platform is made through a dashboard implemented in <strong>JavaServer Faces</strong> because it is a Java specification for building web application interfaces. As this programming model is event oriented it becomes simpler to organize the application components.</p>
+<p>In this way, Domotics manages to have an architecture with strong and directly connected technologies allowing good communication between the main components.</p>
+</div>
+<div class="section" id="data-information-exposed-api">
+<h3>Data/Information &amp; Exposed API<a class="headerlink" href="#data-information-exposed-api" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="database-scheme">
+<h4>Database Scheme<a class="headerlink" href="#database-scheme" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Our database has a table for each parameter the sensors can measure:</dt>
+<dd><ul class="first last">
+<li>Temperature</li>
+<li>Humidity</li>
+<li>CO2 levels</li>
+<li>Movement</li>
+<li>Luminosity</li>
+<li>Energy Consumption</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<ul class="simple">
+<li>In the tables from the parameters present above, there are the following fields: <em>ID</em> (serial), <em>room</em> (varchar(30)), <em>value</em> (int) and <em>hour</em> (varchar(30)).</li>
+<li>Besides the sensors, there is also a table for the <strong>Events</strong> (events that the user can schedule in his or her calendar). The event table has the following fields: <em>ID</em> (serial), <em>name</em> (varchar(30)), <em>eventDate</em> (date) and <em>location</em> (varchar(30)).</li>
+</ul>
+<div class="figure">
+<img alt="_images/db_scheme.png" src="_images/db_scheme.png" />
+</div>
+<p>Figure 12: Database Scheme</p>
+</div>
+<div class="section" id="messages-exchanged">
+<h4>Messages Exchanged<a class="headerlink" href="#messages-exchanged" title="Permalink to this headline">¶</a></h4>
+<p>Our exchanged messages consist of the “key | value” format. According to the key received in the defined topic, <em>SensorValues</em>, our system obtain the respective value sent.</p>
+</div>
+</div>
+<div class="section" id="how-to-deploy">
+<h3>How to deploy?<a class="headerlink" href="#how-to-deploy" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="requirements">
+<h4>1. Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Database of name <em>domotics</em> with <em>user</em> “postgres” and <em>password</em> “secret”. Also, create the required tables present in the python file by running <em>python3 createTables.py</em>.</li>
+<li>Kafka broker running.</li>
+<li>PostgreSQL database running with port 5432 exposed.</li>
+</ul>
+</div>
+<div class="section" id="deployment">
+<h4>2. Deployment<a class="headerlink" href="#deployment" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><strong>Connecting sensors</strong>: have sensors sending messages with format <em>“id|value”</em> to kafka broker: <em>&lt;kafkabrokerip&gt;:9092</em>. Messages are sent to topic <em>“SensorsValues”</em>. Actuators send to the same topic but also receive from topic <em>“ConsumerOrders”</em>.</li>
+<li><dl class="first docutils">
+<dt><strong>System deploy</strong>:</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>Full system with sensors, broker, database, consumer:</dt>
+<dd><ul class="first last">
+<li>Run <code class="docutils literal notranslate"><span class="pre">docker-compose</span> <span class="pre">up</span></code>.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>System with <em>Kafka</em> broker and database <em>PostgreSQL</em> installed:</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>Run (with simulators and actuator):</dt>
+<dd><ol class="first last arabic">
+<li>Edit file <em>docker-compose_vm.yml</em>: change command to, for example: [“./wait-for-it.sh”, “kafka”, “python”, “consumerMain.py”, “&lt;kafkamachine&gt;:9092”] where <em>&lt;kafkamachine&gt;</em> is the hostname of broker or IP address. For sensors: “command: [ “python”, “simMain.py”, “&lt;simtype&gt;“, ”&lt;kafkamachine&gt;:9092”] where <em>&lt;simtype&gt;</em> is the type of value sent (“temperature”, “humidity”, “co2”, “movement”, “energy”).</li>
+<li>Run: <code class="docutils literal notranslate"><span class="pre">docker-compose</span> <span class="pre">-f</span> <span class="pre">docker-compose_vm.yml</span> <span class="pre">up</span></code>.</li>
+</ol>
+</dd>
+</dl>
+</li>
+<li>Run (without simulators): same as above but eliminate the simulators services in the <em>docker-compose_vm.yml</em> file: simen, simco2, simen, simmov, simhum, lightsactuator.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Usage</strong>:</dt>
+<dd><ul class="first last">
+<li>After deploying, accessing the dashboard: <code class="docutils literal notranslate"><span class="pre">http://&lt;tomcatservletmachineAddress&gt;:8888/admin-starter/</span></code></li>
+<li>Accessing the database: <code class="docutils literal notranslate"><span class="pre">http://&lt;adminerMachine&gt;:8010</span></code> and fill the text boxes with: <em>server</em> (&lt;postgresmachine name or ip:port&gt;), <em>user</em> “postgres”, <em>password</em> “secret”, <em>database</em> domotics and type <em>PostgreSql</em>.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="team.html" class="btn btn-neutral float-right" title="Team" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="requirements.html" class="btn btn-neutral" title="Requirements and Tests" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, g302.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,347 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Architecture &mdash; Domotics 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Requirements and Tests" href="requirements.html" />
+    <link rel="prev" title="Specification" href="specification.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Domotics
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                G302
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="client.html">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual.html">User Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="specification.html">Specification</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#logical-architecture">Logical Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#components">Components</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#deployment-architecture">Deployment Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#connections">Connections</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#bus-exposed-api-and-external-interfaces">BUS, Exposed API and External Interfaces</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="requirements.html">Requirements and Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer.html">Developer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="team.html">Team</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Domotics</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Architecture</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/architecture.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="architecture">
+<h1>Architecture<a class="headerlink" href="#architecture" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="logical-architecture">
+<h2>Logical Architecture<a class="headerlink" href="#logical-architecture" title="Permalink to this headline">¶</a></h2>
+<div class="figure">
+<img alt="_images/ES_architecture.png" src="_images/ES_architecture.png" />
+</div>
+<p>Figure 10: Logical Architecture</p>
+<div class="section" id="components">
+<h3>Components<a class="headerlink" href="#components" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><strong>Sensors (simulators)</strong>: generation of values for the simulation of real data from sensors.</li>
+<li><strong>Kafka (broker)</strong>: used to handle the real-time data transmitted by the sensors and it is used to read and write streams of data like a messaging system. In other words, it’s the message broker that makes the bridge between the sensors and the server.</li>
+<li><strong>Database</strong>: PostgreSQL database where are stored the values read from the sensors (simulators).</li>
+<li><strong>Dashboard</strong>: user interface where realtime data and previous values are displayed to the user. This UI was implemented with JSF (and Primefaces) and is deployed with Tomcat (Java web server). In the dashboard, the user can see the realtime information (sent by the broker) in tables and previous values in charts (values that came from queries to the database).</li>
+</ul>
+</div>
+</div>
+<div class="section" id="deployment-architecture">
+<h2>Deployment Architecture<a class="headerlink" href="#deployment-architecture" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="connections">
+<h3>Connections<a class="headerlink" href="#connections" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><strong>Sensors</strong> send messages to broker (Kafka on port 9092) to topic <em>SensorsValues</em>.</li>
+<li><strong>Consumer</strong> gets the messages from the broker and stores them at the database (<em>PostgreSQL</em> on port 5432 if it is in localhost or port 5555 if it’s in the virtual machines).</li>
+<li><strong>Consumer</strong> also sends messages to broker for an actuator to read those messages (<em>topic: ConsumerOrders</em>).</li>
+<li><strong>Dashboard</strong> receives information from the <em>Kafka</em> broker (in realtime) and from the database (historic).</li>
+<li><strong>ELK</strong>: filebeats gets the logfiles from the consumer and sends them to the <em>Logstash</em> who sends to <em>lasticsearch</em> and then displays the data in <em>Kibana</em>.</li>
+</ul>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt><strong>Ports</strong>:</dt>
+<dd><ul class="first last">
+<li><em>Kafka</em>: 9092</li>
+<li><em>PostgreSQL</em>: 5432 (localhost) or 5555 (VM)</li>
+<li><em>Adminer (Database Manager)</em>: 8010</li>
+<li><em>Dashboard</em>: 8888</li>
+<li><em>Consumer (exposed ports)</em>: 5432 or 9092</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Containers</strong>:</dt>
+<dd><ul class="first last">
+<li>kafka</li>
+<li>lightsactuator</li>
+<li>simtemp</li>
+<li>simhum</li>
+<li>simuco2</li>
+<li>simmov</li>
+<li>simen</li>
+<li>consumer</li>
+<li>postgres</li>
+<li>adminer</li>
+<li>dashboard</li>
+<li>elk</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Containers in the VM</strong>:</dt>
+<dd><ul class="first last">
+<li>simtemp</li>
+<li>simhum</li>
+<li>simco2</li>
+<li>simmov</li>
+<li>simen (sensors)</li>
+<li>lighstactuator (actuador)</li>
+<li>consumer</li>
+<li>dashboard</li>
+<li>adminer</li>
+<li>elk</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Docker-compose</strong>:</dt>
+<dd><ul class="first last">
+<li><em>Dashboard</em>: admin-starter.war file running on tomcat servlet.</li>
+<li><em>Consumer</em> running on python3 environment with <em>kafka-python</em> and <em>psycopg2</em> packages.</li>
+<li><em>Sensors</em> and <em>actuator</em> running on python3 with <em>kafka-python</em> package (only for system testing).</li>
+<li><dl class="first docutils">
+<dt><em>Database (PostgreSQL)</em>:</dt>
+<dd><ul class="first last">
+<li>database name: domotics</li>
+<li>user: postgres</li>
+<li>password: secret</li>
+<li>tables that should be created: presented in SQL file in Dockerbuilds/Postgresql/domotics_tables.sql</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><em>Adminer image</em> from docker hub.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="bus-exposed-api-and-external-interfaces">
+<h2>BUS, Exposed API and External Interfaces<a class="headerlink" href="#bus-exposed-api-and-external-interfaces" title="Permalink to this headline">¶</a></h2>
+<p>The sensors will send values to the <strong>topic</strong> SensorValues through a <strong>Kafka producer</strong> in Python. This values will be sent along with the <strong>key</strong> that identifies them: temperature, humidity, CO2, movement or energy.</p>
+<p>After the values are sent, the dashboard has a <strong>consumer</strong> implemented in Java that uses <strong>Kafka Streams</strong> to read the values from the producer. The consumer checks the key sent and save the values in their respective “field” in a ArrayList. There were implemented functions that show in the dashboard the last value received according to the key and functions that process and calculate the average of all the values received.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="requirements.html" class="btn btn-neutral float-right" title="Requirements and Tests" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="specification.html" class="btn btn-neutral" title="Specification" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, g302.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

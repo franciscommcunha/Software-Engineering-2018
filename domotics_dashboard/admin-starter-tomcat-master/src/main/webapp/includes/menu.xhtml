@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+        >
+
+     <ul class="sidebar-menu">
+        <li>
+            <p:link href="/index.xhtml" onclick="clearBreadCrumbs()">
+                <i class="fa fa-home"></i>
+                <span>Home</span>
+            </p:link>
+        </li>
+        <li class="header">
+            Realtime
+        </li>
+        <li>
+            <p:link href="/temperature.xhtml">
+                <i class="fa fa-thermometer"></i>
+                <span>Temperature</span>
+            </p:link>
+            <p:link href="/luminosity.xhtml">
+                <i class="fa fa-lightbulb-o"></i>
+                <span>Luminosity</span>
+            </p:link>
+            <p:link href="/humidity.xhtml">
+                <i class="fa fa-tint"></i>
+                <span>Humidity</span>
+            </p:link>
+            <p:link href="/smoke.xhtml">
+                <i class="fa fa-cloud"></i>
+                <span>CO2 Levels</span>
+            </p:link>
+            <p:link href="/movement.xhtml">
+                <i class="fa fa-male"></i>
+                <span>Movement</span>
+            </p:link>
+            <p:link href="/energy.xhtml">
+                <i class="fa fa-bolt"></i>
+                <span>Energy</span>
+            </p:link>
+        </li>
+         <li class="header">
+            Historic
+        </li>
+        <li>
+            <p:link href="/temperature_historic.xhtml">
+                <i class="fa fa-thermometer"></i>
+                <span>Temperature</span>
+            </p:link>
+            <p:link href="/luminosity_historic.xhtml">
+                <i class="fa fa-lightbulb-o"></i>
+                <span>Luminosity</span>
+            </p:link>
+            <p:link href="/humidity_historic.xhtml">
+                <i class="fa fa-tint"></i>
+                <span>Humidity</span>
+            </p:link>
+            <p:link href="/smoke_historic.xhtml">
+                <i class="fa fa-cloud"></i>
+                <span>CO2 Levels</span>
+            </p:link>
+            <p:link href="/movement_historic.xhtml">
+                <i class="fa fa-male"></i>
+                <span>Movement</span>
+            </p:link>
+            <p:link href="/energy_historic.xhtml">
+                <i class="fa fa-bolt"></i>
+                <span>Energy</span>
+            </p:link>
+        </li>
+
+    </ul>
+
+</ui:composition>

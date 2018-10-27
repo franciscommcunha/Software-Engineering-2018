@@ -1,0 +1,26 @@
+pipeline {
+	agent any
+	stages {
+		stage('Build Dashboard') {
+			steps {
+				sh 'cd domotics_dashboard && cd admin-starter-tomcat-master && mvn package'
+				sh 'cp domotics_dashboard/admin-starter-tomcat-master/target/admin-starter.war DockerBuilds/Dashboard'
+			}
+		}
+		stage('ELK') {
+			steps {
+				sh "cd DockerBuilds/elk && docker-compose up -d "
+			}
+		}
+		stage('Build') {
+			steps {
+				sh 'cd DockerBuilds && docker-compose build'
+			}
+		}
+		stage('Deploy') {
+			steps {
+				sh 'cd DockerBuilds && docker-compose up'
+			}
+		}
+	}
+}

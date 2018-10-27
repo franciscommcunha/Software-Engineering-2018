@@ -1,0 +1,13 @@
+Architecture
+============
+
+Under construction.
+
+Logical Architecture
+--------------------
+
+Deployment Architecture
+-----------------------
+
+BUS, Exposed API and External Interfaces
+----------------------------------------

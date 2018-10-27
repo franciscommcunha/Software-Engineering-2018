@@ -1,0 +1,344 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>User Manual &mdash; Domotics 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Specification" href="specification.html" />
+    <link rel="prev" title="Client" href="client.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Domotics
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                G302
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="client.html">Client</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">User Manual</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#deploy-of-the-system">Deploy of the System</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#requirements">Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deployment">Deployment</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-use-the-system">How to use the system?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="specification.html">Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="requirements.html">Requirements and Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer.html">Developer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="team.html">Team</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Domotics</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>User Manual</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/manual.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="user-manual">
+<h1>User Manual<a class="headerlink" href="#user-manual" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="deploy-of-the-system">
+<h2>Deploy of the System<a class="headerlink" href="#deploy-of-the-system" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="requirements">
+<h3>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Database of name <em>domotics</em> with <em>user</em> “postgres” and <em>password</em> “secret”. Also, create the required tables present in the python file by running <em>python3 createTables.py</em>.</li>
+<li>Kafka broker running.</li>
+<li>PostgreSQL database running with port 5432 exposed.</li>
+</ul>
+</div>
+<div class="section" id="deployment">
+<h3>Deployment<a class="headerlink" href="#deployment" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><strong>Connecting sensors</strong>: have sensors sending messages with format <em>“id|value”</em> to kafka broker: <em>&lt;kafkabrokerip&gt;:9092</em>. Messages are sent to topic <em>“SensorsValues”</em>. Actuators send to the same topic but also receive from topic <em>“ConsumerOrders”</em>.</li>
+<li><dl class="first docutils">
+<dt><strong>System deploy</strong>:</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>Full system with sensors, broker, database, consumer:</dt>
+<dd><ul class="first last">
+<li>Run <code class="docutils literal notranslate"><span class="pre">docker-compose</span> <span class="pre">up</span></code>.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>System with <em>Kafka</em> broker and database <em>PostgreSQL</em> installed:</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>Run (with simulators and actuator):</dt>
+<dd><ol class="first last arabic">
+<li>Edit file <em>docker-compose_vm.yml</em>: change command to, for example: [“./wait-for-it.sh”, “kafka”, “python”, “consumerMain.py”, “&lt;kafkamachine&gt;:9092”] where <em>&lt;kafkamachine&gt;</em> is the hostname of broker or IP address. For sensors: “command: [ “python”, “simMain.py”, “&lt;simtype&gt;“, ”&lt;kafkamachine&gt;:9092”] where <em>&lt;simtype&gt;</em> is the type of value sent (“temperature”, “humidity”, “co2”, “movement”, “energy”).</li>
+<li>Run: <code class="docutils literal notranslate"><span class="pre">docker-compose</span> <span class="pre">-f</span> <span class="pre">docker-compose_vm.yml</span> <span class="pre">up</span></code>.</li>
+</ol>
+</dd>
+</dl>
+</li>
+<li>Run (without simulators): same as above but eliminate the simulators services in the <em>docker-compose_vm.yml</em> file: simen, simco2, simen, simmov, simhum, lightsactuator.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Usage</strong>:</dt>
+<dd><ul class="first last">
+<li>After deploying, accessing the dashboard: <code class="docutils literal notranslate"><span class="pre">http://&lt;tomcatservletmachineAddress&gt;:8888/admin-starter/</span></code></li>
+<li>Accessing the database: <code class="docutils literal notranslate"><span class="pre">http://&lt;adminerMachine&gt;:8010</span></code> and fill the text boxes with: <em>server</em> (&lt;postgresmachine name or ip:port&gt;), <em>user</em> “postgres”, <em>password</em> “secret”, <em>database</em> domotics and type <em>PostgreSql</em>.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="how-to-use-the-system">
+<h2>How to use the system?<a class="headerlink" href="#how-to-use-the-system" title="Permalink to this headline">¶</a></h2>
+<p><strong>1.</strong> The first step in our project is the login page. Here, the user fill the fields with his credentials to have access to his smarthouse’s dashboard.</p>
+<blockquote>
+<div><div class="figure">
+<img alt="_images/login.png" src="_images/login.png" />
+</div>
+<p>Figure 3: Login Page</p>
+</div></blockquote>
+<p><strong>2.</strong> If the credentials of the user are correct, we will be redirect to the homepage of the dashboard. Here he can see:</p>
+<ul>
+<li><p class="first">Average temperature registered during the day.</p>
+</li>
+<li><p class="first">Average humidity registered during the day.</p>
+</li>
+<li><p class="first">Average CO2 levels registered during the day.</p>
+</li>
+<li><p class="first">Division where it was registered the most movements during the day.</p>
+</li>
+<li><p class="first">Average energy consumption registered during the day.</p>
+<div class="figure">
+<img alt="_images/homepage.png" src="_images/homepage.png" />
+</div>
+<p>Figure 4: Homepage</p>
+</li>
+</ul>
+<p><strong>3.</strong> In the dashboard, the user has access to realtime data. By selecting the parameter the user wants to observe, he or she will be redirect to a page where are displayed, for each house division, the values registered by the sensors in realtime.</p>
+<blockquote>
+<div><div class="figure">
+<img alt="_images/temp_table.png" src="_images/temp_table.png" />
+</div>
+<p>Figure 5: Table with values in realtime</p>
+</div></blockquote>
+<p><strong>4.</strong> Oh the other hand, if the user wants to see previous values of the sensors, he can consult the historic. This is an option available on the navigation bar on the left side of the dashboard. By choosing one of the parameters read by the sensors, after the title “Historic”, the user can see previous values presented in a chart.</p>
+<blockquote>
+<div><div class="figure">
+<img alt="_images/co2_chart.png" src="_images/co2_chart.png" />
+</div>
+<p>Figure 6: Chart of CO2 levels</p>
+</div></blockquote>
+<p><strong>5.</strong> The user has also access to a calendar implemented inside the dashboard where he or she can visualize all the events (for every months of the year) planned such as meetings or birthday parties. The user can also add new events.</p>
+<blockquote>
+<div><div class="figure">
+<img alt="_images/calendar.png" src="_images/calendar.png" />
+</div>
+<p>Figure 7: Calendar</p>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="specification.html" class="btn btn-neutral float-right" title="Specification" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="client.html" class="btn btn-neutral" title="Client" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, g302.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

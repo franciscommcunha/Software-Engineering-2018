@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="#{layoutMB.layout}">
+
+    <ui:define name="head-end">
+        <ui:param name="renderBreadCrumb" value="false"/>
+    </ui:define>
+
+    <ui:define name="title">
+        <h2 class="align-center">
+            Welcome to the your Smart House dashboard!
+            <br/>
+        </h2>
+        <p:spacer height="15px"/>
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-yellow"><i class="fa fa-thermometer"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Temperature (Average)</span>
+                        <span class="info-box-number">#{data.tempAverage}<small>ºC</small></span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- fix for small devices only -->
+            <div class="clearfix visible-sm-block"></div>
+
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-green"><i class="fa fa-tint"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Humidity</span>
+                        <span class="info-box-number">#{data.humAverage}<small>%</small></span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-aqua"><i class="fa fa-cloud"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">CO2 Levels</span>
+                        <span class="info-box-number">#{data.CO2Average}<small>ppm</small></span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <p:spacer height="15px"/>
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-navy"><i class="fa fa-male"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Movement</span>
+                        <span class="info-box-number"><small>#{data.movAverage}</small></span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-red"><i class="fa fa-bolt"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Energy (Today's average)</span>
+                        <span class="info-box-number">#{data.energyAverage}<small>kW/h</small></span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+        </div>
+    </ui:define>
+</ui:composition>

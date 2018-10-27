@@ -1,0 +1,67 @@
+version: '3'
+services:
+
+  kafka:
+    image: johnnypark/kafka-zookeeper
+    ports:
+      - "9092:9092"
+    environment:
+      ADVERTISED_HOST: kafka
+    networks:
+      - webnet
+  lightsactuator:
+    build: ./Actuator
+    depends_on:
+      - "kafka"
+    links: 
+      - kafka
+    command: ["./wait-for-it.sh", "kafka", "python", "actuatorMain.py"] #, "-debug"]
+    networks:
+      - webnet
+  simmov:
+    build: ./Simulator
+    depends_on:
+      - "kafka"
+    command: ["python", "simMain.py", "movement"]
+    links: 
+      - kafka
+    networks:
+      - webnet
+  simtemp:
+    build: ./Simulator
+    depends_on:
+      - "kafka"
+    command: ["python", "simMain.py", "temperature"]
+    links: 
+      - kafka
+    networks:
+      - webnet
+  consumer:
+    build: ./Consumer
+    command: ["./wait-for-it.sh", "kafka", "python", "consumerMain.py"]
+    links: 
+      - postgres
+      - kafka
+    networks:
+      - webnet
+#  consumerjava:
+#    build: ./Testing
+#    command: ["./wait-for-it.sh", "kafka", "java", "-jar", "javaConsumer.jar"]
+#    networks:
+#      - webnet
+  postgres:
+    build: ./Postgresql
+    restart: always
+    ports:
+      - "5432:5432"
+    networks:
+      - webnet
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8010:8080
+    networks:
+      - webnet
+networks:
+  webnet:

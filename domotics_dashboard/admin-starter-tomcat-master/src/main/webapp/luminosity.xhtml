@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:adm="http://github.com/adminfaces"
+                template="#{layoutMB.layout}">
+
+    <ui:define name="head-end">
+        <style type="text/css">
+            .ui-datatable .ui-datatable-header {
+                text-align: right !important;
+            }
+
+        </style>
+    </ui:define>
+
+    <ui:define name="title">
+        Luminosity:
+    </ui:define>
+    <ui:define name="description">
+        Check the percentage of luminosity for each room of your house where the sensors are displayed.
+    </ui:define>
+
+    <ui:define name="body">
+
+        <h:form>
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    
+                    <p:dataTable widgetVar="carsTable" var="c" value="#{data.movement}" rows="15"
+                                 rowKey="#{c.local}" lazy="true" paginator="true"
+                                 filteredValue="#{carListMB.filteredValue}"
+                                 paginatorPosition="bottom" selection="#{carListMB.selectedCars}"
+                                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown} {JumpToPageDropdown}"
+                                 currentPageReportTemplate="[ {startRecord} to {endRecord} of {totalRecords} ]"
+                                 rowsPerPageTemplate="5,10,15,20,30"
+                            >
+
+                        <p:ajax event="rowSelectCheckbox" update="@(.ui-button, .ui-confirm-dialog)"/>
+                        <p:ajax event="rowUnselectCheckbox" update="@(.ui-button, .ui-confirm-dialog)"/>
+                        <p:ajax event="rowSelect" update="@(.ui-button, .ui-confirm-dialog)"/>
+                        <p:ajax event="rowUnselect" update="@(.ui-button, .ui-confirm-dialog)"/>
+
+
+                        <f:facet name="header">
+                            Find room by name: <p:inputText id="inptId" value="#{c.id}"/>
+                            <p:spacer height="5"/>
+                            <p:commandButton id="brFind"
+                                             value="Find"
+                                             action="#{carListMB.findCarById(carListMB.id)}"
+                                             process="@form"
+                                             update="@form"
+                                             styleClass="btn-flat bg-black"
+                                             partialSubmit="true"/>
+                        </f:facet>
+                        <p:column selectionMode="multiple" width="5%" styleClass="align-center"/>
+
+                        <p:column headerText="Room">
+                            #{c.local}
+                        </p:column>
+                    </p:dataTable>
+                </div>
+            </div>
+            <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" styleClass="box-danger">
+                <p:commandButton value="Yes" type="button" styleClass="btn-primary ui-confirmdialog-yes"
+                                 icon="fa fa-check"/>
+                <p:commandButton value="No" type="button" styleClass="btn-danger ui-confirmdialog-no"
+                                 icon="fa fa-close"/>
+            </p:confirmDialog>
+        </h:form>
+
+        <p:dialog header="Selected cars" widgetVar="selectedCars" height="250"
+                  width="400" responsive="true" styleClass="box-success">
+            <p:dataList id="selectedCarsList" value="#{carListMB.selectedCars}" var="car"
+                        type="definition">
+                ID: #{car.id} - Name: #{car.name} - Model: #{car.model}
+            </p:dataList>
+        </p:dialog>
+
+    </ui:define>
+
+</ui:composition>

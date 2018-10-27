@@ -1,0 +1,28 @@
+version: '3'
+services:
+  rabbitmq:
+    image: "rabbitmq:3-management"
+    ports:
+      - 8080:15672
+    networks:
+      - webnet
+  simulator:
+    build: ./Simulator
+    depends_on:
+      - "rabbitmq"
+    command: ["./wait-for-it.sh", "rabbitmq", "python", "Simulador.py"]
+    links: 
+        - rabbitmq
+    networks:
+      - webnet
+  actuator:
+    build: ./Actuator
+    depends_on:
+      - "rabbitmq"
+    command: ["./wait-for-it.sh", "rabbitmq", "python", "receive.py"]
+    links: 
+        - rabbitmq
+    networks:
+      - webnet
+networks:
+  webnet:

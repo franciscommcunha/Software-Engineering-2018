@@ -1,0 +1,106 @@
+version: '3'
+services:
+  kafka:
+    image: johnnypark/kafka-zookeeper
+    ports:
+      - "9092:9092"
+    environment:
+      ADVERTISED_HOST: kafka
+    networks:
+      - elk
+  lightsactuator:
+    build: ./Actuator
+    depends_on:
+      - "kafka"
+    links: 
+      - kafka
+    command: ["./wait-for-it.sh", "kafka", "python", "actuatorMain.py"] #, "-debug"]
+    networks:
+      - elk
+  simtemp:
+    build: ./Simulator
+    depends_on:
+      - "kafka"
+    command: ["python", "simMain.py", "temperature"]
+    links: 
+      - kafka
+    networks:
+      - elk
+  simhum:
+    build: ./Simulator
+    depends_on:
+      - "kafka"
+    command: ["python", "simMain.py", "humidity"]
+    links: 
+      - kafka
+    networks:
+      - elk
+  simuco2:
+    build: ./Simulator
+    depends_on:
+      - "kafka"
+    command: ["python", "simMain.py", "co2"]
+    links: 
+      - kafka
+    networks:
+      - elk
+  simmov:
+    build: ./Simulator
+    depends_on:
+      - "kafka"
+    command: ["python", "simMain.py", "movement"]
+    links: 
+      - kafka
+    networks:
+      - elk
+  simen:
+    build: ./Simulator
+    depends_on:
+      - "kafka"
+    command: ["python", "simMain.py", "energy"]
+    links: 
+      - kafka
+    networks:
+      - elk
+  consumer:
+    build: ./Consumer
+    command: ["./wait-for-it.sh", "kafka", "python", "consumerMain.py"]
+    links: 
+      - postgres
+      - kafka
+    networks:
+      - elk
+
+  #consumerjava:
+  #  build: ./Consumer
+  #  command: ["./wait-for-it.sh", "rabbitmq", "java", "consumer.java"]
+  #  links: 
+  #    - postgres
+  #  networks:
+  #    - elk
+
+
+  postgres:
+    build: ./Postgresql
+    restart: always
+    ports:
+      - "5432:5432"
+    networks:
+      - elk
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8010:8080
+    networks:
+      - elk
+  dashboard:
+    build: ./Dashboard
+    ports:
+      - 8888:8080
+    links:
+      - postgres
+    networks:
+      - elk
+networks:
+  elk:

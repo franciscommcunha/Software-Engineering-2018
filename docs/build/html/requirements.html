@@ -1,0 +1,463 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Requirements and Tests &mdash; Domotics 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Developer" href="developer.html" />
+    <link rel="prev" title="Architecture" href="architecture.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Domotics
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                G302
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="client.html">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual.html">User Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="specification.html">Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Requirements and Tests</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#software-requirements-and-specification">Software Requirements and Specification</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#system-requirements">System Requirements</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#operating-environment">Operating Environment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#design-and-implementation-constraints">Design and Implementation Constraints</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#considerations-and-dependencies">Considerations and Dependencies</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#business-requirements">Business Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#functional-requirements">Functional Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#external-interface-requirements">External Interface Requirements</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#user-interaction-interfaces">User Interaction Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#interactions-with-the-software">Interactions with the Software</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#interactions-with-hardware">Interactions with Hardware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#communication-interfaces">Communication Interfaces</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#quality-attributes">Quality Attributes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#usability-requirements">Usability Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#performance-requirements">Performance Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#security-requirements">Security Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#protection-requirements">Protection Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#availability-requirements">Availability Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#robustness-requirements">Robustness Requirements</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#user-requirements">User requirements</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tests">Tests</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="developer.html">Developer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="team.html">Team</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Domotics</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Requirements and Tests</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/requirements.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="requirements-and-tests">
+<h1>Requirements and Tests<a class="headerlink" href="#requirements-and-tests" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="software-requirements-and-specification">
+<h2>Software Requirements and Specification<a class="headerlink" href="#software-requirements-and-specification" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="system-requirements">
+<h3>System Requirements<a class="headerlink" href="#system-requirements" title="Permalink to this headline">¶</a></h3>
+<p>Our system will be accessible through a web dashboard that can be open in any browser, what requires Internet connection. For this project to be successful, it must respect the following quality attributes:</p>
+<ul class="simple">
+<li><strong>Reliability</strong>: the system must remain operational during time.</li>
+<li><strong>Performance</strong>: the system must answer fast to the user requests with low response times to the clients.</li>
+<li><strong>Suport</strong>: the system must have sufficient capacity to adapt to the requirements of its customers.</li>
+<li><strong>Safety</strong>: the system must have the ability to withstand attempts to access of unprivileged users.</li>
+<li><strong>Usability</strong>: the system must present documentation (for example a manual user) in order to help the users if they need.</li>
+<li><strong>Interoperability</strong>: the system must be able to communicate with other systems and to exchange information between itself and the other systems.</li>
+</ul>
+<p>The interface of the web dashboard must be intuitive in order to facilitate the adaption of the user.</p>
+<p>Now, it will be presented a set of detailed requirements for the system.</p>
+<div class="section" id="operating-environment">
+<h4>Operating Environment<a class="headerlink" href="#operating-environment" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><strong>OE-1</strong>: Domotics must be available in the following browsers: Google Chrome, Mozilla Firefox, Safari, Opera and Microsoft Edge.</li>
+<li><strong>OE-2</strong>: Domotics is a user interface only available to web browsers.</li>
+</ul>
+</div>
+<div class="section" id="design-and-implementation-constraints">
+<h4>Design and Implementation Constraints<a class="headerlink" href="#design-and-implementation-constraints" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><strong>CO-1</strong>: All the code written with JSF must correspond to the JSF technology.</li>
+<li><strong>CO-2</strong>: The system must store all its information in a PostgreSQL database.</li>
+</ul>
+</div>
+<div class="section" id="considerations-and-dependencies">
+<h4>Considerations and Dependencies<a class="headerlink" href="#considerations-and-dependencies" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt><strong>Considerations</strong>:</dt>
+<dd><ul class="first last">
+<li><strong>AS-1</strong>: The web dashboard is available 24/7 and it’s updated every second.</li>
+<li><strong>AS-2</strong>: Only users with valid credentials can access the dashboard.</li>
+<li><strong>AS-3</strong>: Only users living in the house in question with permissions can access the dashboard.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Dependencies</strong>:</dt>
+<dd><ul class="first last">
+<li><strong>DE-1</strong>: The values obtained by the sensors will only be updated if the sensors are working.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="business-requirements">
+<h3>Business Requirements<a class="headerlink" href="#business-requirements" title="Permalink to this headline">¶</a></h3>
+<p>The following are the Business Rules (BR) specifications for Domotics:</p>
+<ul class="simple">
+<li><strong>BR-1</strong>: All values must be updated in realtime.</li>
+<li><strong>BR-2</strong>: Only users with valid credentials can have access to the web dashboard.</li>
+<li><strong>BR-3</strong>: Only users must be identified.</li>
+<li><strong>BR-4</strong>: Sensors must be replaced or fixed if they are not working.</li>
+</ul>
+</div>
+<div class="section" id="functional-requirements">
+<h3>Functional Requirements<a class="headerlink" href="#functional-requirements" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><strong>FE-1</strong>: When a trigger situation event happens, an alert must be send.</li>
+<li><strong>FE-2</strong>: The information must be processed and displayed in realtime.</li>
+<li><strong>FE-3</strong>: The user must be able to check future events in the calendar.</li>
+<li><strong>FE-4</strong>: It must be displayed for the user, realtime and previous information.</li>
+<li><strong>FE-5</strong>: Provide access to the system through any browser.</li>
+</ul>
+</div>
+<div class="section" id="external-interface-requirements">
+<h3>External Interface Requirements<a class="headerlink" href="#external-interface-requirements" title="Permalink to this headline">¶</a></h3>
+<p>Below are the specifications of external interface requirements for communication with the Domotics system, categorized by the name of each section to which they belong.</p>
+<div class="section" id="user-interaction-interfaces">
+<h4>User Interaction Interfaces<a class="headerlink" href="#user-interaction-interfaces" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><strong>UI-1</strong>: The webpage in its desktop version should be simple and intuitive.</li>
+<li><strong>UI-2</strong>: Users should easily switch between realtime and historic data.</li>
+</ul>
+</div>
+<div class="section" id="interactions-with-the-software">
+<h4>Interactions with the Software<a class="headerlink" href="#interactions-with-the-software" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt><strong>SI-1</strong>: Consult System:</dt>
+<dd><ul class="first last">
+<li><strong>SI-1.1</strong>: Check realtime data.</li>
+<li><strong>SI-1.2</strong>: Check previous data of all day.</li>
+<li><strong>SI-1.3</strong>: Check future events.</li>
+<li><strong>SI-1.4</strong>: Check average values of the day obtained from processing the values obtained by the sensors.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>SI-2</strong>: Notifications System:</dt>
+<dd><ul class="first last">
+<li><strong>SI-2.1</strong>: Notifications are displayed for the user when some value is above/below the threshold.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="interactions-with-hardware">
+<h4>Interactions with Hardware<a class="headerlink" href="#interactions-with-hardware" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><strong>HI-1</strong>: The sensors should be working correctly.</li>
+<li><strong>HI-2</strong>: The sensors should communicate and send values to the broker.</li>
+</ul>
+</div>
+<div class="section" id="communication-interfaces">
+<h4>Communication Interfaces<a class="headerlink" href="#communication-interfaces" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><strong>CI-1</strong>: The system will send notifications to the user when some value is not normal.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="quality-attributes">
+<h3>Quality Attributes<a class="headerlink" href="#quality-attributes" title="Permalink to this headline">¶</a></h3>
+<p>Below are the specifications of quality attributes to which the Domotics system will have to obey, categorized by the name of each section to which they belong.</p>
+<div class="section" id="usability-requirements">
+<h4>Usability Requirements<a class="headerlink" href="#usability-requirements" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><strong>USE-1</strong>: 90% of the users of the Domotics system, must be able to use the user interface without having to consult the documentation.</li>
+<li><strong>USE-2</strong>: Users should be able to see previous and future events.</li>
+</ul>
+</div>
+<div class="section" id="performance-requirements">
+<h4>Performance Requirements<a class="headerlink" href="#performance-requirements" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><strong>PER-1</strong>: The webpage must complete the download after 5 seconds for an Internet connection of 30 Mbps or more.</li>
+<li><strong>PER-2</strong>: The values from the sensors should be displayed in realtime in the dashboard.</li>
+<li><strong>PER-3</strong>: In case of trigger event the dashboard must display a warning alert.</li>
+</ul>
+</div>
+<div class="section" id="security-requirements">
+<h4>Security Requirements<a class="headerlink" href="#security-requirements" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><strong>SEC-1</strong>: All the data from the users must be encrypted.</li>
+<li><strong>SEC-2</strong>: Users must log in to be able to access the dashboard and all its features.</li>
+<li><strong>SEC-3</strong>: All the users must be registered in the web platform.</li>
+</ul>
+</div>
+<div class="section" id="protection-requirements">
+<h4>Protection Requirements<a class="headerlink" href="#protection-requirements" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><strong>SAF-1</strong>: The user must be able to monitor in realtime, only the values sent by the sensors installed in his or her house.</li>
+</ul>
+</div>
+<div class="section" id="availability-requirements">
+<h4>Availability Requirements<a class="headerlink" href="#availability-requirements" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><strong>AVL-1</strong>: The web dashboard will be accessible 24/7.</li>
+<li><strong>AVL-2</strong>: The sensors must be working 24/7.</li>
+</ul>
+</div>
+<div class="section" id="robustness-requirements">
+<h4>Robustness Requirements<a class="headerlink" href="#robustness-requirements" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><strong>ROB-1</strong>: If the client loses the connection with the web platform before entering data for a future event in its entirety, they must be presented to the user when the user logs in again.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="user-requirements">
+<h3>User requirements<a class="headerlink" href="#user-requirements" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li>UR-1: Monitorize in real time all wanted aspects at home.</li>
+<li>UR-2: Acess historic information.</li>
+<li>UR-3: Alert to something that is not supose to be happening e.g. temperature higher than 30ªC.</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="tests">
+<h2>Tests<a class="headerlink" href="#tests" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">To do the behaviour-driven development (BDD) testing we had to be able to mimic or mock the behaviour of external dependencies so in order to do this, we went with the software <em>Behave</em>. We chose <em>Behave</em> because our code for the actuators was written in <em>Python</em> and this was the simplest and an efficient choice.</p>
+</li>
+<li><p class="first">For these tests we chose five different scenarios within four different features. The features chosen for the tests were: the CO2 and humidity values, the notifications and temperature regulator.</p>
+</li>
+<li><p class="first">In the CO2 values feature, we tested the scenario of having a high concentration value of CO2 within a specific room. In this scenario the user should receive a warning.</p>
+</li>
+<li><p class="first">In the humidity value feature, the tested scenario was that in a given room the humidity value is very high and when this happens the room temperature is regulated in order to lower the humidity.</p>
+</li>
+<li><p class="first">In the notification feature, the scenario is the set of an alarm for a given task and when the time of the alarm comes, the user receives a notification.</p>
+</li>
+<li><p class="first">In the temperature regulator feature, we tested two different scenarios: one for high and another one for low temperature, in which the regulator has to act in order to decrease or increase the room temperature according to the defined values of the user.</p>
+</li>
+<li><p class="first">As we can see in the image below, all these features and scenarios have been successfully passed.</p>
+<div class="figure">
+<img alt="_images/bdd_tests.png" src="_images/bdd_tests.png" />
+</div>
+<p>Figure 11: BDD Tests</p>
+</li>
+</ul>
+<p>To run these tests, you have to install <em>Behave</em> and navigate to the features folder and execute the command <code class="docutils literal notranslate"><span class="pre">behave</span></code> to run tests of all the features. To test only one feature, execute the command “behave”, followed by the name of the file that contains the feature to be tested, like this: <code class="docutils literal notranslate"><span class="pre">behave</span> <span class="pre">fileOfFeature</span></code>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="developer.html" class="btn btn-neutral float-right" title="Developer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="architecture.html" class="btn btn-neutral" title="Architecture" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, g302.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
